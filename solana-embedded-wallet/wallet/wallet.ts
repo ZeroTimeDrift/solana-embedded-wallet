@@ -115,7 +115,9 @@ export class GhostWallet implements Wallet {
         if (new.target === GhostWallet) {
             Object.freeze(this);
         }
-
+/*         if (!ghost) {
+            throw new Error('Ghost instance is undefined');
+        } */
         this.#ghost = ghost;
 
         ghost.on('connect', this.#connected, this);

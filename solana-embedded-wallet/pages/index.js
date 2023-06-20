@@ -3,9 +3,17 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { WalletMultiButton, WalletDisconnectButton } from '@solana/wallet-adapter-react-ui';
 import { initialize } from './../wallet/initalize.ts';
+import { GhostWallet } from '../wallet/wallet';
 
 export default function Home() {
-  initialize();
+  const ghostWallet = new GhostWallet();
+  initialize (ghostWallet);
+  try {
+    Object.defineProperty(window, 'ghostWallet', { value: ghostWallet });
+}
+catch (error) {
+    console.error(error);
+}
   return (
     <div className={styles.container}>
       
