@@ -2,21 +2,8 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { WalletMultiButton, WalletDisconnectButton } from '@solana/wallet-adapter-react-ui';
-import { initialize } from './../wallet/initalize.ts';
-import { GhostWallet } from '../wallet/wallet';
-import { useEffect } from 'react';
 export default function Home() {
-  useEffect(() => {
-  const ghostWallet = new GhostWallet();
-  initialize(ghostWallet);
-  try {
-    Object.defineProperty(window, 'ghostWallet', { value: ghostWallet });
-}
 
-catch (error) {
-    console.error(error);
-}
-  },[]);
   return (
     <div className={styles.container}>
       
