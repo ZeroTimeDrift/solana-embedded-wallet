@@ -46,7 +46,7 @@ export type GhostFeature = {
 export class GhostWallet implements Wallet {
     readonly #listeners: { [E in StandardEventsNames]?: StandardEventsListeners[E][] } = {};
     readonly #version = '1.0.0' as const;
-    readonly #name = 'Ghost' as const;
+    readonly #name = 'MoonGate' as const;
     readonly #icon = icon;
     #account: GhostWalletAccount | null = null;
     readonly #ghost: Ghost;

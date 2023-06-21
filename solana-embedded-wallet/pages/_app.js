@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps }) {
         initialize(ghostWallet);
     
         try {
-          Object.defineProperty(window, 'ghostWallet', { value: ghostWallet });
+          Object.defineProperty(window, 'moongate', { value: ghostWallet });
           setWalletReady(true);  // Set the wallet as ready
         } catch (error) {
           console.error(error);
