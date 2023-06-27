@@ -8,18 +8,23 @@ import {
     WalletDisconnectButton,
     WalletMultiButton
 } from '@solana/wallet-adapter-react-ui';
-import { clusterApiUrl } from '@solana/web3.js';
-import { initialize } from './../wallet/initalize.ts';
+import { clusterApiUrl, PublicKey, Keypair } from '@solana/web3.js';
+import { initialize } from '../wallet/initalize';
 import { GhostWallet } from '../wallet/wallet';
+import { Ghost } from '../wallet/window';
+import { GhostImplementation } from '../wallet/new-wallet';
 
 // Default styles that can be overridden by your app
 require('@solana/wallet-adapter-react-ui/styles.css');
 
 function MyApp({ Component, pageProps }) {
     const [isWalletReady, setWalletReady] = useState(false);
-
+ 
     useEffect(() => {
-        const ghostWallet = new GhostWallet();
+        const ghost = new GhostImplementation();
+        console.log(ghost);
+        const ghostWallet = new GhostWallet(ghost);
+        console.log(ghostWallet);
         initialize(ghostWallet);
     
         try {
