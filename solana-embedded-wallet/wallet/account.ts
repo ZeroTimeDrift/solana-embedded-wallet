@@ -10,7 +10,7 @@ import { SOLANA_CHAINS } from './solana.ts';
 
 const chains = SOLANA_CHAINS;
 const features = [SolanaSignAndSendTransaction, SolanaSignTransaction, SolanaSignMessage] as const;
-
+// Instantiate the GhostWalletAccount class
 export class GhostWalletAccount implements WalletAccount {
     readonly #address: WalletAccount['address'];
     readonly #publicKey: WalletAccount['publicKey'];
