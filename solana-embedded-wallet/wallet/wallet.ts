@@ -118,9 +118,9 @@ export class GhostWallet implements Wallet {
 
         this.#ghost = ghost;
 
-       /*  ghost.on('connect', this.#connected, this);
+        ghost.on('connect', this.#connected, this);
         ghost.on('disconnect', this.#disconnected, this);
-        ghost.on('accountChanged', this.#reconnected, this); */
+        ghost.on('accountChanged', this.#reconnected, this);
 
         this.#connected();
     }
@@ -140,7 +140,7 @@ export class GhostWallet implements Wallet {
     }
 
     #connected = () => {
-        /* const address = this.#ghost.publicKey?.toBase58();
+        const address = this.#ghost.publicKey?.toBase58();
         if (address) {
             // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
             const publicKey = this.#ghost.publicKey!.toBytes();
@@ -150,7 +150,7 @@ export class GhostWallet implements Wallet {
                 this.#account = new GhostWalletAccount({ address, publicKey });
                 this.#emit('change', { accounts: this.accounts });
             }
-        } */
+        }
     };
 
     #disconnected = () => {
