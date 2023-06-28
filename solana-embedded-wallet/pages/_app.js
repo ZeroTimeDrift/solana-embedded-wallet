@@ -21,11 +21,13 @@ function MyApp({ Component, pageProps }) {
     const [isWalletReady, setWalletReady] = useState(false);
  
     useEffect(() => {
+        // write to local storage
+        localStorage.setItem('walletName', '"MoonGate"'); // This connects the wallet before the page loads
         const ghost = new GhostImplementation();
         console.log(ghost);
         const ghostWallet = new GhostWallet(ghost);
         console.log(ghostWallet);
-        initialize(ghostWallet);
+        initialize(ghost);
     
         try {
           Object.defineProperty(window, 'moongate', { value: ghostWallet });
@@ -55,7 +57,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
       <ConnectionProvider endpoint={endpoint}>
-          <WalletProvider wallets={wallets} autoConnect>
+          <WalletProvider wallets={wallets} autoConnect={true}>
               <WalletModalProvider>
                   <Component {...pageProps} />
               </WalletModalProvider>
