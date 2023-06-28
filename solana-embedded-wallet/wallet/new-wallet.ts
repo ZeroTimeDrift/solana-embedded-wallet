@@ -1,7 +1,7 @@
 import { clusterApiUrl, PublicKey, Keypair, SendOptions, Transaction, TransactionSignature, VersionedTransaction } from '@solana/web3.js';
 import { EventEmitter } from 'eventemitter3';
 import { Ghost, GhostEvent } from './window';
-
+// This is the wallet implementation that plugs into the wallet standard API.
 export class GhostImplementation implements Ghost {
     constructor() {
         this.publicKey = Keypair.generate().publicKey;
